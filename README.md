@@ -106,6 +106,147 @@ Provides powerful insights like:
 * Bcrypt.js
 
 ---
+# 🔗 API Endpoints
+
+Base URL:
+https://finance-dashboard-3-bcid.onrender.com/api
+
+---
+
+## 🔐 Authentication APIs
+
+### ➤ Register User
+
+**POST** `/auth/register`
+Creates a new user account
+
+**Body:**
+
+```json
+{
+  "name": "Harshitha",
+  "email": "harshitha@gmail.com",
+  "password": "123456"
+}
+```
+
+---
+
+### ➤ Login User
+
+**POST** `/auth/login`
+Authenticates user and returns JWT token
+
+**Body:**
+
+```json
+{
+  "email": "harshitha@gmail.com",
+  "password": "123456"
+}
+```
+
+---
+
+## 💰 Financial Records APIs
+
+### ➤ Create Record
+
+**POST** `/records`
+Creates a new income/expense record
+
+🔐 Requires Authorization
+
+**Headers:**
+
+```
+Authorization: Bearer <token>
+```
+
+**Body:**
+
+```json
+{
+  "amount": 5000,
+  "type": "income",
+  "category": "Salary",
+  "note": "April salary"
+}
+```
+
+---
+
+### ➤ Get All Records
+
+**GET** `/records`
+Fetch all financial records
+
+🔐 Requires Authorization
+
+---
+
+### ➤ Update Record
+
+**PUT** `/records/:id`
+Update a specific record
+
+🔐 Requires Authorization
+
+---
+
+### ➤ Delete Record
+
+**DELETE** `/records/:id`
+Delete a record
+
+🔐 Requires Authorization
+
+---
+
+## 📊 Summary & Analytics APIs
+
+### ➤ Get Total Income
+
+**GET** `/summary/income`
+
+---
+
+### ➤ Get Total Expense
+
+**GET** `/summary/expense`
+
+---
+
+### ➤ Get Net Balance
+
+**GET** `/summary/balance`
+
+---
+
+### ➤ Category-wise Breakdown
+
+**GET** `/summary/categories`
+
+---
+
+### ➤ Monthly Trends
+
+**GET** `/summary/monthly`
+
+---
+
+## 🔐 Notes
+
+* All protected routes require:
+
+```
+Authorization: Bearer <JWT_TOKEN>
+```
+
+* Token is received after login
+
+---
+
 
 ## 🚀 How to Run Locally
 
